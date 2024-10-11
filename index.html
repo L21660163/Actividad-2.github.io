@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar color de fondo aleatorio</title>
+    
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; /* Centra el título y el botón en columna */
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0; /* Color de fondo inicial */
+        }
+
+        h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            background: linear-gradient(45deg, #ff5733, #ffbd33, #75ff33, #33ffbd, #335bff, #a833ff); /* Degradado multicolor */
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: linear-gradient(45deg, #d94f2f, #d0a82f, #66d82f, #2fb9b0, #2f66d8, #8e2fd8); /* Degradado más oscuro al hacer hover */
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px); /* Efecto de elevación */
+        }
+    </style>
+    
+    <script>
+        // Función que genera un color hexadecimal aleatorio
+        function generarColorAleatorio() {
+            let caracteresHexadecimales = '0123456789ABCDEF';
+            let color = '#'; 
+            
+            for (let i = 0; i < 6; i++) {
+                color += caracteresHexadecimales[Math.floor(Math.random() * 16)];
+            }
+            
+            return color; 
+        }
+
+        // Función que cambia el color de fondo del body
+        function cambiarColorFondo() {
+            let colorAleatorio = generarColorAleatorio();
+            document.body.style.backgroundColor = colorAleatorio;
+        }
+    </script>
+</head>
+<body>
+
+    <h1>Cambiar color de fondo</h1> <!-- Título de la actividad -->
+    <button onclick="cambiarColorFondo()">Cambiar color de fondo</button>
+
+</body>
+</html>
